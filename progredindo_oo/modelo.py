@@ -34,10 +34,9 @@ class Filmes(programas):
         super().__init__(nome,ano)
         self.duracao = duracao
         
-        self._nome = nome.title()
-        self.ano = ano
+
         self.duracao = duracao
-        self._curtir = 0
+      
 
   
 
@@ -46,10 +45,9 @@ class Series(programas):
         super().__init__(nome,ano)
         self.temporadas = temporadas
     
-        self._nome = nome.title()
-        self.ano = ano
+        
         self.temporadas = temporadas
-        self._curtir = 0
+       
 
     @property
     def valor_curtir(self):
@@ -70,3 +68,7 @@ print(f"\nNome: {aventuras_superman.valor_nome} - Ano: {aventuras_superman.ano} 
 
 avatar = Filmes("Avatar", 2009, 177)
 print(f"\nNome: {avatar.valor_nome} - Ano: {avatar.ano} - Duração: {avatar.duracao} - curtidas {avatar.valor_curtir}")
+filmes_series = [aventuras_superman, avatar]
+for programas in filmes_series: 
+    detalhe = programas.duracao if hasattr(programas, 'duracao') else programas.temporadas
+    print(f"{programas.valor_nome}- {programas.ano} - {detalhe}")
